@@ -1,3 +1,7 @@
 import Title from '../../components/title';
 
-it('should testind jest', () => {});
+describe('Jest test', () => {
+	it('should testind jest', () => {
+		expect(Title).exist;
+	});
+});
