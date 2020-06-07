@@ -6,4 +6,12 @@ const mymap = (arr, callback) => {
 	return newArr;
 };
 
-export default mymap;
+// Map com recursão
+const recusionMap = (arr = [], callback) => {
+	return (function recusion(arrInt, counter) {
+		const [ head, ...tail ] = arrInt;
+		return arrInt.length === 0 ? [] : [ callback(head, counter, arr), ...recusion(tail, counter + 1) ];
+	})(arr, 0);
+};
+
+export default recusionMap;
