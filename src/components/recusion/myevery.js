@@ -7,4 +7,11 @@ const myevery = (arr, callback) => {
 	return true;
 };
 
-export default myevery;
+const recursiveEvery = (arr, callback) => {
+	return (function recursive(arrInt, counter) {
+		const [ head, ...tail ] = arrInt;
+		return arrInt.length === 0 ? true : !callback(head, counter, arr) ? false : recursive(tail, counter + 1);
+	})(arr, 0);
+};
+
+export default recursiveEvery;
