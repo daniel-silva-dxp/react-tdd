@@ -17,4 +17,12 @@ describe('My Every test', () => {
 	test('should return `true` when receiving `([1,2,3], (item) => item > 0)`', () => {
 		expect(myevery([ 1, 2, 3 ], (item) => item > 0)).to.be.equal(true);
 	});
+
+	test('should return `true` when receiving `([1,2,3], (item, index) => index === item - 1)`', () => {
+		expect(myevery([ 1, 2, 3 ], (item, index) => index === item - 1)).to.be.equal(true);
+	});
+
+	test('should return `true` when receiving `([1,2,3], (item, index, arr) => arr.length === 3)`', () => {
+		expect(myevery([ 1, 2, 3 ], (item, index, arr) => arr.length === 3)).to.be.equal(true);
+	});
 });
