@@ -8,4 +8,13 @@ const myfilter = (arr, callback) => {
 	return newArr;
 };
 
-export default myfilter;
+const recursiveFilter = (arr, callback) => {
+	return (function recurive(arrInt, counter) {
+		const [ head, ...tail ] = arrInt;
+		return arrInt.length === 0
+			? []
+			: (callback(head, counter, arr) ? [ head ] : []).concat(recurive(tail, counter + 1));
+	})(arr, 0);
+};
+
+export default recursiveFilter;
