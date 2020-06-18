@@ -7,4 +7,11 @@ const mysome = (arr, callback) => {
 	return false;
 };
 
-export default mysome;
+const recursiveSome = (arr, callback) => {
+	return (function recursive(arrInt, counter) {
+		const [ head, ...tail ] = arrInt;
+		return arrInt.length === 0 ? false : callback(head, counter, arr) ? true : recursive(tail, counter + 1);
+	})(arr, 0);
+};
+
+export default recursiveSome;
